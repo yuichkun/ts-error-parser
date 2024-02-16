@@ -9,6 +9,7 @@
   "author": "Yuichi Yogo",
   "license": "MIT",
   "devDependencies": {
-    "ts-node": "10.9.2"
+    "ts-node": "10.9.2",
+    "vitest": "1.2.2"
   }
 }
