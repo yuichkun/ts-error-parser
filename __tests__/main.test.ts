@@ -22,8 +22,8 @@ it("should parse diagnostic line correctly", () => {
 describe("parseTSErrors", () => {
   it("should correctly parse a log with multi-line error messages, including detailed descriptions", () => {
     const logContent = `
-frontend/components/gibberish/WidgetFrobnicator.vue(8,32): error TS2345: Argument of type '(status: keyof typeof WIDGET_STATUS_MAP) => "is-foo" | "is-bar" | "is-baz"' is not assignable to parameter of type '0 | 1 | 2'.
-frontend/components/gibberish/ComplexComponent.vue(28,57): error TS2345: Argument of type '{ date: number | false; title: "string"; type: "OutputType"; url: "string"; blog: { tags: string[]; }; career: { type: "string"; }; connpass: { status: number; }; github: { contributions: number; contributionsUrl: "string"; ... 11 more ...; updatedAt: number; }; ... 8 more ...; viewsDetail: ViewsDetail[]; }' is not assignable to parameter of type 'Output'.
+frontend/components/gibberish/WidgetFrobnicator.ts(8,32): error TS2345: Argument of type '(status: keyof typeof WIDGET_STATUS_MAP) => "is-foo" | "is-bar" | "is-baz"' is not assignable to parameter of type '0 | 1 | 2'.
+frontend/components/gibberish/ComplexComponent.js(28,57): error TS2345: Argument of type '{ date: number | false; title: "string"; type: "OutputType"; url: "string"; blog: { tags: string[]; }; career: { type: "string"; }; connpass: { status: number; }; github: { contributions: number; contributionsUrl: "string"; ... 11 more ...; updatedAt: number; }; ... 8 more ...; viewsDetail: ViewsDetail[]; }' is not assignable to parameter of type 'Output'.
   Types of property 'date' are incompatible.
     Type 'number | false' is not assignable to type 'number'.
       Type 'boolean' is not assignable to type 'number'.
@@ -33,7 +33,7 @@ frontend/components/gibberish/AnotherComponent.vue(147,7): error TS2322: Type 'u
     const expectedDiagnostics = [
       {
         location: {
-          path: "frontend/components/gibberish/WidgetFrobnicator.vue",
+          path: "frontend/components/gibberish/WidgetFrobnicator.ts",
           lineNode: {
             startLine: 8,
             endLine: 32,
@@ -47,7 +47,7 @@ frontend/components/gibberish/AnotherComponent.vue(147,7): error TS2322: Type 'u
       },
       {
         location: {
-          path: "frontend/components/gibberish/ComplexComponent.vue",
+          path: "frontend/components/gibberish/ComplexComponent.js",
           lineNode: {
             startLine: 28,
             endLine: 57,
