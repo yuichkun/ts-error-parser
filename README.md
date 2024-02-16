@@ -23,7 +23,7 @@ To parse an entire TypeScript error log:
 
 ```typescript
 import { parseTSErrors } from 'ts-error-parser';
-import as fs from 'fs';
+import fs from 'fs';
 
 const logContent = fs.readFileSync('path/to/your/error.log', 'utf8');
 const diagnostics = parseTSErrors(logContent);
