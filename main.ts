@@ -49,3 +49,29 @@ export function parseLine(log: string): Diagnostic {
     },
   };
 }
+
+export function parseTSErrors(logContent: string): Diagnostic[] {
+  const diagnostics: Diagnostic[] = [];
+  const diagnosticRegex =
+    /(.+\.vue|\.(ts|js))\((\d+),(\d+)\): error TS(\d+): ([\s\S]+?)(?=\n\S|$)/g;
+
+  let match;
+  while ((match = diagnosticRegex.exec(logContent)) !== null) {
+    const [, path, , startLine, endLine, errorCode, message] = match;
+    diagnostics.push({
+      location: {
+        path,
+        lineNode: {
+          startLine: parseInt(startLine),
+          endLine: parseInt(endLine),
+        },
+      },
+      errorReport: {
+        errorCode: parseInt(errorCode),
+        message: message.trim().replace(/\n\s+/g, " "), // Replace newlines and indentation with a single space
+      },
+    });
+  }
+
+  return diagnostics;
+}
