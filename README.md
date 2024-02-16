@@ -5,7 +5,7 @@ TS Error Parser is a TypeScript library designed to parse TypeScript error messa
 ## Features
 
 - Parses entire TypeScript error logs, including multi-line error messages.
-- Outputs structured `Diagnostic` objects containing detailed error information.
+- Outputs structured [Diagnostic](./src/main.ts#L1) objects containing detailed error information.
 
 ## Installation
 
