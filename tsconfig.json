@@ -1,13 +1,17 @@
 {
   "compilerOptions": {
     /* Language and Environment */
-    "target": "es2016",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+    "target": "es5",                                  /* For compatibility with older environments */
     /* Modules */
-    "module": "commonjs",                                /* Specify what module code is generated. */
+    "module": "commonjs",                                /* CommonJS modules for Node.js compatibility */
+    "outDir": "./dist",                                   /* Output directory for compiled files */
+    "declaration": true,                                  /* Generates corresponding '.d.ts' files */
     "esModuleInterop": true,                             /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
     "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
     "strict": true,                                      /* Enable all strict type-checking options. */
     "noImplicitAny": true,                            /* Enable error reporting for expressions and declarations with an implied 'any' type. */
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
-  }
+  },
+  "include": ["src/**/*"],                               /* Adjust this to your source files directory */
+  "exclude": ["node_modules", "dist", "**/*.test.ts"]     /* Exclude directories */
 }
