@@ -1,7 +1,7 @@
 {
   "name": "ts-error-parser",
   "version": "1.0.0",
-  "description": "Parses TS Error Messages",
+  "description": "A parser for typescript error logs",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
   "scripts": {
@@ -19,5 +19,9 @@
     "ts-node": "10.9.2",
     "typescript": "5.3.3",
     "vitest": "1.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yuichkun/ts-error-parser.git"
   }
 }
